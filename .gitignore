@@ -1,0 +1,4 @@
+# .gitignore
+firebase-key.json
+.env
+node_modules
