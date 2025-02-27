@@ -4,9 +4,7 @@ const admin = require("firebase-admin");
 const twilio = require("twilio");
 
 // Load the Firebase Service Account Key
-const serviceAccount = JSON.parse(
-  Buffer.from(process.env.FIREBASE_SERVICE_ACCOUNT_KEY, "base64").toString("utf-8")
-);
+const serviceAccount = require("./firebase-key.json");
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
@@ -15,8 +13,8 @@ admin.initializeApp({
 
 // Initialize Twilio Client
 const twilioClient = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
+  process.env.TWILIO_ACCOUNT_SID, // Use environment variable
+  process.env.TWILIO_AUTH_TOKEN   // Use environment variable
 );
 
 const db = admin.firestore();
